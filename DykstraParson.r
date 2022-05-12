@@ -23,7 +23,7 @@ y_min <- 1
 y_max <- 1000
 
 
-eq <- lm(log10(permeability)~fraction, data=df)
+eq <- lm(log10(permeability)~fraction, data=df_perm_data)
 kv50 <- 10^ predict(eq, newdata = data.frame(fraction=0.5))
 kv84 <- 10^ predict(eq, newdata = data.frame(fraction=0.841))
 
@@ -50,7 +50,6 @@ scale_y_continuous(trans='log10',
 theme_bw() +
 theme(axis.title = element_text(size = 18), 
       axis.text.y =element_text(size = 16), 
-      axis.text.x =element_text(size = 12) , 
       plot.title = element_text(size = 24)) +
 labs(title = "Permeability Variation", 
      x="%Total Samples Having Higher Permeability", 
